@@ -23,3 +23,10 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+Cypress.Commands.add('setup', () => {
+    cy.visit('https://tvolearn.com/')
+    cy.get('#SiteNav').contains('Learning Resources').click()
+    cy.get('#SiteNavLabel-learning-resources-k-12').contains('Grade 5').click()
+    cy.get('.button-subject-name').contains('Mathematics').click()
+})
+//
