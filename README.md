@@ -29,8 +29,11 @@ Test 6
 This test validate the number of bullet points in the box next to the "Curriculum Overview". The box should contain a total of 6 elements, and the last element should be "Financial Literacy"
 
 Test 7
-This test validates the links under "Resources for Learning" section. The test clicks the first element which is "TVO Learn mPower", this should navigate to the "mpower.tvo.org..." url. Since cypress does not support tests that opens in a new tab, the target attribute from the link is removed so that it can open open the link in the current tab.
+This test validates the game links under "Resources for Learning" section. The test clicks the first element which is "TVO Learn mPower", this should navigate to the "mpower.tvo.org..." url. Since cypress does not support tests that opens in a new tab, the target attribute from the link is removed so that it can open open the link in the current tab.
 
 Test 8
+This test validates the video links under "Resources for Learning" section. The test clicks the "Homework Zone Mathematics", this should navigate to the video. Since cypress does not support tests that opens in a new tab, the target attribute from the link is removed so that it can open open the link in the current tab.
 
+
+Test 9
 This test focuses on the search bar, when the search icon is clicked, the search bar should become visible. After, "grade 6 math" is used as input, and when the search form is submitted, it should navigate to a new page which url contains "search" and the heading should include the input that was provided.

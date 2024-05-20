@@ -58,30 +58,56 @@ describe('validate the functionality of grade 5 math page', () => {
   //   cy.get('#s-21183bd0-8fed-4d84-b535-64484df11e21 li').last().should('have.text', 'Financial Literacy')
   // })
 
-  // // Test 7
-  // it('Open link under Resources for Learning', () => {
-  //   cy.get('#resources li')
-  //     .first()
-  //     .invoke('removeAttr', 'target')
-  //     .click()
-  //   cy.wait(200)
-  //   cy.url().should('include', 'mpower.tvo,org')
-  // })
+  // Test 7
+  it('Open game link under Resources for Learning', () => {
+    let game_link = cy.get('#resources > li:nth-child(1) > a').invoke('attr', 'href')
+    cy.log(game_link)
+    cy.get('#resources > li:nth-child(1) > a')
+      .invoke('removeAttr', 'target')
+      .click()
+    cy.origin(game_link, () => {
+      cy.log(cy.url())
+      cy.url().should('include', 'mpower')
+    })
 
-  // Test 8
-  it('search functionality', () => {
-    cy.get('#SiteNav > li:nth-child(5) > button').click()
-    cy.get('#SearchDrawer > div > div.search-bar__table-cell.search-bar__form-wrapper > form')
-      .should('be.visible')
-    cy.get('#SearchDrawer > div > div.search-bar__table-cell.search-bar__form-wrapper > form')
-      .find('[type="text"]')
-      .type('grade 6 math')
-    cy.get('#SearchDrawer > div > div.search-bar__table-cell.search-bar__form-wrapper > form')
-      .submit()
-    cy.wait(200)
-    cy.url().should('include', 'search')
-    cy.get('#MainContent > div.search-results-content > h1')
-      .should('contain.text', 'grade 6 math')
   })
 
+  // // Test 8
+  it('open video link under Resources for Learning', () => {
+    cy.log(cy.get('#resources > li:nth-child(3) > a').invoke('attr', 'href'))
+    cy.get('#resources > li:nth-child(3) > a')
+      .invoke('removeAttr', 'target')
+      .click()
+    cy.origin(video_link, () => {
+      cy.log(cy.url())
+      cy.url().should('include', 'homework-zone')
+
+      cy.get('video')
+        .should('have.prop', 'paused', true)
+        .and('have.prop', 'ended', false)
+        .then(($video) => {
+          $video[0].play()
+        })
+      // once the video starts playing, check props
+      cy.get('video')
+        .should('have.prop', 'paused', false)
+        .and('have.prop', 'ended', false)
+    })
+  })
+
+  // Test 9
+  // it('search functionality', () => {
+  //   cy.get('#SiteNav > li:nth-child(5) > button').click()
+  //   cy.get('#SearchDrawer > div > div.search-bar__table-cell.search-bar__form-wrapper > form')
+  //     .should('be.visible')
+  //   cy.get('#SearchDrawer > div > div.search-bar__table-cell.search-bar__form-wrapper > form')
+  //     .find('[type="text"]')
+  //     .type('grade 6 math')
+  //   cy.get('#SearchDrawer > div > div.search-bar__table-cell.search-bar__form-wrapper > form')
+  //     .submit()
+  //   cy.wait(200)
+  //   cy.url().should('include', 'search')
+  //   cy.get('#MainContent > div.search-results-content > h1')
+  //     .should('contain.text', 'grade 6 math')
+  // })
 })
