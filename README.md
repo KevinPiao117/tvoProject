@@ -5,7 +5,7 @@ Assuming the user has node.js and cypress installed. If not please follow the gu
 https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
 https://www.cypress.io/
 
-Navigate to cypress_testing folder, open console and enter "npx cypress open". A new window should pop up. Choose E2E testing and run with any broswer.
+Navigate to cypress_testing folder, open console and enter "npx cypress run". A new window should pop up. Choose E2E testing and run with any broswer.
 
 The test cases all follow these intial setup
 1. Visit https://tvolearn.com/
