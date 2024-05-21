@@ -1,16 +1,21 @@
 # tvoProject
 # Automated Test for TVO website
 
+## Environment setup
 Assuming the user has node.js, cypress installed. If not please follow these guide for installing node.js, npm, and cypress.
 https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
 https://www.cypress.io/
 
 For generated report, cypress mochawesome reporter is used. To install this reporter please follow this guide, https://github.com/LironEr/cypress-mochawesome-reporter/tree/1a666768c89c9981c7647125ef2e45e69ae1d75d
 
+## How to run
+Navigate to cypress_testing folder, open console and enter "npx cypress run" to run headless. The test report can be found in "/cypress_testing/cypress/reports/html/index.html"
 
-Navigate to cypress_testing folder, open console and enter "npx cypress run".
+To run in cypress browser, use "npx cypress open". A new window should appear, then choose E2E Testing. Select any browser and start E2E Testing. Click on any test spec to run the test.
 
 
+
+## Test summary
 The test cases all follow these intial setup
 1. Visit https://tvolearn.com/
 2. Navigate to the "Learning Resources (K-12)" dropdown from the header
@@ -28,7 +33,6 @@ This test focus on funtionality of the scroll to top button within the page. The
 
 ## Test 3
 Validates the number of buttons under the "On this page" section, it should have 4 buttons. This test also checks the first and the last button which should say "Learning Activities" and "Vocabulary".
-
 
 ## Test 4
 This tests the functionality of "Subscribe" buttton. When the button is clicked without any input, there should be a focus by the email input field, and the error line should pop up below the input field. When the subscribe button is clicked with a valid email address, a line that shows successful should appear.
